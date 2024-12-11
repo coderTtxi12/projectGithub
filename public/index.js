@@ -141,3 +141,106 @@ console.log(dice());
 
 
 
+
+
+
+function Coin(material, country) {
+
+    this.material = material;
+    this.country = country;
+
+    this.flip = function () {
+
+        let coin =
+            Math.floor(Math.random(0, 1) * 2);
+
+        let result = 'Try again, an error occurred';
+
+        if (coin === 0) {
+
+            result = 'aguila';
+
+
+        } else if (coin === 1) {
+
+            result = 'sol';
+
+        }
+
+        return result;
+
+    }
+
+}
+
+
+let myCoin = new Coin('gold', 'mx');
+
+console.log('The result is: ' + myCoin.flip());
+
+
+
+
+
+class MyCoinFromMexico {
+
+
+    constructor(material, country) {
+
+        if (!country || !material) {
+
+            throw new Error('Material or Country Cannor be Empty');
+        }
+        this._material = material;
+        this._country = country;
+    }
+
+
+    flip() {
+
+        let coin = Math.floor((Math.random(0, 1) * 2));
+
+        let result = '';
+        if (coin == 0) {
+            result = 'Aguila';
+        } else if (coin === 1) {
+
+            result = 'Sol';
+
+        }
+
+
+        return result;
+    }
+
+    get material() {
+        return this._material;
+    }
+
+    get country() {
+        return this._country;
+    }
+
+    set material(value) {
+
+        this._material = value;
+    }
+
+    set country(value) {
+
+        this._country = value;
+    }
+}
+
+
+
+var myGoldCoin = new MyCoinFromMexico('Gold', 'Mexico');
+
+console.log('The result of this coin is: ' + myGoldCoin.flip());
+
+
+
+
+
+
+
